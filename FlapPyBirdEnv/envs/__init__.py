@@ -1,0 +1,1 @@
+from FlapPyBirdEnv.envs.flappy_env import FlapPyEnv
