@@ -2,15 +2,15 @@ import gym
 from gym import error, spaces, utils
 from gym.utils import seeding
 import numpy as np
-from FlapPyBirdEnv improt FlappyGame
+from FlapPyBirdEnv.flappy import FlappyGame
 
-class FlapPyEnv(gym.env):
+class FlapPyEnv(gym.Env):
     # metadata = {'render.modes': ['human']}
 
     def __init__(self):
         self.game = FlappyGame()
         self.action_space = spaces.Discrete(2)
-        self.observation_space = spaces.Box(np.array([0, 0, 0], np.array([100,100,100]), dtype=np.int32))
+        self.observation_space = spaces.Box(np.array([-100, -10, 0]), np.array([512, 512, 300]), dtype=np.int32)
 
     def step(self, action):
         self.game.action(action)
