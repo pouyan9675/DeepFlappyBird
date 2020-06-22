@@ -1,5 +1,6 @@
 from itertools import cycle
 import random
+import math
 import sys
 import numpy as np
 import pygame
@@ -235,7 +236,10 @@ class FlappyGame:
 
 
     def observe(self):
-        return np.array([self._player.y, self.upperPipes[0].x, self.lowerPipes[0].y])
+        return np.array([[self.upperPipes[0].x - self._player.x + self._player.w,                   # Horizontal distance with pipeline
+                        self.upperPipes[0].y + IMAGES['pipe'][0].get_height() - self._player.y,     # Vertical distance with upper pipe
+                        self.lowerPipes[0].y - self._player.y + self._player.h,                     # Vertical distance with lower pipe
+                        BASEY - self._player.y]])                                                   # Distance with ground
 
 
     def view(self):
@@ -275,11 +279,15 @@ class FlappyGame:
 
 
         # check for crash here
-        self.is_crashed = self.checkCrash(self.upperPipes, self.lowerPipes)[0]
+        self.is_crashed = self.checkCrash(self.upperPipes, self.lowerPipes)
+        self.is_crashed = self.is_crashed[0] or self.is_crashed[1]
+        
         if self.is_crashed:
             self.reward = -2000
+        elif self._player.y < 0:
+            self.reward += (-50 * abs(self._player.y))
         else:
-            self.reward += 1
+            self.reward = 10 + self.score * 200
         
 
         # check for score
