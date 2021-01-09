@@ -3,7 +3,6 @@
 import numpy as np
 import FlapPyBirdEnv
 import gym
-from tqdm import tqdm
 from agents import *
 import random
 import time
@@ -101,5 +100,5 @@ if __name__ == "__main__":
 
     agent = deepQ_agent(env)
 
-    agent.load_model('weights/backup.h5')
+    agent.load_model('weights/pretrained.h5')
     play(agent)

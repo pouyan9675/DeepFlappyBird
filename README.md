@@ -1,50 +1,43 @@
-FlapPyBird
+DeepFlapPyBird
 ===============
+![Deep Flappy Bird](demo.gif)
 
-A Flappy Bird Clone made using [python-pygame][pygame]
+DeepFlapPyBird is a project that trains an agent using Deep Q-Learning to play flappybird game. Despite many
+other existed versions, this project does not use the game frames images as input and it is implemented inside
+the game and it will get the observations with the help of a custom gym environment.
 
-How-to (as tested on MacOS)
+This project is a modified clone of [FlaPyBird](https://github.com/sourabhv/FlapPyBird) repository.
+
+Installation (as tested on MacOS)
 ---------------------------
 
-1. Install Python 3.x (recommended) 2.x from [here](https://www.python.org/download/releases/)
-
-2. Install [pipenv]
-
-2. Install PyGame 1.9.x from [here](http://www.pygame.org/download.shtml)
-
-3. Clone the repository:
-
+1. Create a python virtual environment to install required packages (optional):
 ```bash
-$ git clone https://github.com/sourabhv/FlapPyBird
+$ python3 -m venv venv
+$ source venv/bin/activate
 ```
 
-or download as zip and extract.
-
-4. In the root directory run
-
+2. Install [PyGame](https://www.pygame.org/wiki/GettingStarted) (2.x.x recommended):
 ```bash
-$ pipenv install
-$ pipenv run python flappy.py
+$ pip install pygame
 ```
 
-5. Use <kbd>&uarr;</kbd> or <kbd>Space</kbd> key to play and <kbd>Esc</kbd> to close the game.
+3. Install [OpenAI Gym](https://gym.openai.com/):
+```bash
+$ pip install gym
+```
 
-(For x64 windows, get exe [here](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame))
+4. Install [PyTorch](https://pytorch.org/get-started/) as it's documentation.
 
-Notable forks
--------------
 
-- [FlappyBird Fury Mode](https://github.com/Cc618/FlapPyBird)
-- [FlappyBird Model Predictive Control](https://github.com/philzook58/FlapPyBird-MPC)
-- [FlappyBird OpenFrameworks Port](https://github.com/TheLogicMaster/ofFlappyBird)
-
-Made something awesome from FlapPyBird? Add it to the list :)
-
+5. Install NumPy:
+```bash
+$ pip install numpy
+```
 
 ScreenShot
 ----------
+![Deep Flappy Bird](demo.gif)
 
-![Flappy Bird](screenshot1.png)
 
-[pygame]: http://www.pygame.org
-[pipenv]: https://pipenv.readthedocs.io/en/latest/
+
